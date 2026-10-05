@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/employee")
 public class EmployeeController {
     private final EmployeeService employeeService;
 
@@ -24,7 +25,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EmployeeResponse> findEmployeeById (long id){
+    public ResponseEntity<EmployeeResponse> findEmployeeById (@ PathVariable Long id){
         EmployeeResponse employeeResponse = employeeService.findEmployeeById(id);
         return ResponseEntity.ok(employeeResponse);
     }
@@ -35,7 +36,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/department/{departmentId}")
-    public ResponseEntity<EmployeeResponse> findEmployeeByDepartment (@PathVariable long departmentId){
+    public ResponseEntity<EmployeeResponse> findEmployeeByDepartment (@PathVariable Long departmentId){
         return ResponseEntity.ok().body(employeeService.findEmployeeByDepartmentId(departmentId));
     }
 

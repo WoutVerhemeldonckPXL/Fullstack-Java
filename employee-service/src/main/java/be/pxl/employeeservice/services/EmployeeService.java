@@ -28,10 +28,10 @@ public class EmployeeService {
         employee.setOrganizationId(employeeRequest.organizationId());
 
         employeeRepository.save(employee);
-        return new EmployeeResponse(employee.getFirstName(), employee.getLastName(), employee.getEmail());
+        return new EmployeeResponse(employee.getId(), employee.getFirstName(), employee.getLastName(), employee.getEmail());
     }
 
-    public EmployeeResponse findEmployeeById(long id){
+    public EmployeeResponse findEmployeeById(Long id){
         Optional<Employee> optionalEmployee = employeeRepository.findById(id);
 
         if (optionalEmployee.isEmpty()){
@@ -39,18 +39,18 @@ public class EmployeeService {
         }
         Employee employee = optionalEmployee.get();
 
-        return new EmployeeResponse (employee.getFirstName(), employee.getLastName(), employee.getEmail());
+        return new EmployeeResponse (employee.getId(), employee.getFirstName(), employee.getLastName(), employee.getEmail());
     }
 
     public List<EmployeeResponse> getAllEmployees (){
         List<EmployeeResponse> employees = employeeRepository.findAll().stream()
-                .map(e -> new EmployeeResponse(e.getFirstName(), e.getLastName(), e.getEmail()))
+                .map(e -> new EmployeeResponse(e.getId(), e.getFirstName(), e.getLastName(), e.getEmail()))
                 .toList();
 
         return employees;
     }
 
-    public EmployeeResponse findEmployeeByDepartmentId (long departmentId){
+    public EmployeeResponse findEmployeeByDepartmentId (Long departmentId){
         Optional<Employee> optionalEmployee = employeeRepository.findByDepartmentId(departmentId);
 
         if (optionalEmployee.isEmpty()){
@@ -59,7 +59,7 @@ public class EmployeeService {
 
         Employee employee = optionalEmployee.get();
 
-        return new EmployeeResponse(employee.getFirstName(), employee.getLastName(), employee.getEmail());
+        return new EmployeeResponse(employee.getId(), employee.getFirstName(), employee.getLastName(), employee.getEmail());
     }
 
     public EmployeeResponse findEmployeeByOrganizationId (long organizationId){
@@ -71,6 +71,6 @@ public class EmployeeService {
 
         Employee employee = optionalEmployee.get();
 
-        return new EmployeeResponse(employee.getFirstName(), employee.getLastName(), employee.getEmail());
+        return new EmployeeResponse(employee.getId(), employee.getFirstName(), employee.getLastName(), employee.getEmail());
     }
 }

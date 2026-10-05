@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  db:
+  dbEmployee:
     image: mysql:8.0
     container_name: employee-db
     restart: always
@@ -15,5 +15,20 @@ services:
     volumes:
       - employee_data:/var/lib/mysql
 
+  dbDepartment:
+    image: mysql:8.0
+    container_name: department-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: department-db
+      MYSQL_USER: mijngebruiker
+      MYSQL_PASSWORD: mijnwachtwoord
+    ports:
+      - "3307:3306"
+    volumes:
+      - department_data:/var/lib/mysql
+
 volumes:
   employee_data:
+  department_data:
