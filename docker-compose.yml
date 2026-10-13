@@ -29,6 +29,36 @@ services:
     volumes:
       - department_data:/var/lib/mysql
 
+  dbOrganisation:
+    image: mysql:8.0
+    container_name: organisation-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: organisation-db
+      MYSQL_USER: mijngebruiker
+      MYSQL_PASSWORD: mijnwachtwoord
+    ports:
+      - "3308:3306"
+    volumes:
+      - organisation_data:/var/lib/mysql
+
+  dbNotification:
+    image: mysql:8.0
+    container_name: notification-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: notification-db
+      MYSQL_USER: mijngebruiker
+      MYSQL_PASSWORD: mijnwachtwoord
+    ports:
+      - "3309:3306"
+    volumes:
+      - notification_data:/var/lib/mysql
+
 volumes:
   employee_data:
   department_data:
+  organisation_data:
+  notification_data:
