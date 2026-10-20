@@ -1,5 +1,7 @@
 package be.pxl.employeeservice.services;
 
+import be.pxl.employeeservice.DTO.NotificationRequest;
+import be.pxl.employeeservice.client.NotificationClient;
 import be.pxl.employeeservice.domain.Employee;
 import be.pxl.employeeservice.domain.dto.EmployeeRequest;
 import be.pxl.employeeservice.domain.dto.EmployeeResponse;
@@ -14,9 +16,11 @@ import java.util.Optional;
 public class EmployeeService {
 
     private final EmployeeRepository employeeRepository;
+    private final NotificationClient notificationClient;
 
-    public EmployeeService(EmployeeRepository employeeRepository){
+    public EmployeeService(EmployeeRepository employeeRepository, NotificationClient notificationClient){
         this.employeeRepository = employeeRepository;
+        this.notificationClient = notificationClient;
     }
 
     public EmployeeResponse addEmployee (EmployeeRequest employeeRequest){
@@ -28,6 +32,10 @@ public class EmployeeService {
         employee.setOrganizationId(employeeRequest.organizationId());
 
         employeeRepository.save(employee);
+
+        NotificationRequest notifRequest = new NotificationRequest("Nieuwe medewerker aangemaakt: " + employee.getLastName());
+        notificationClient.sendNotification(notifRequest);
+
         return new EmployeeResponse(employee.getId(), employee.getFirstName(), employee.getLastName(), employee.getEmail());
     }
 

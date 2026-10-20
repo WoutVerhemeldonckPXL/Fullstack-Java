@@ -1,5 +1,6 @@
 package be.pxl.departmentservice.controller;
 
+import be.pxl.departmentservice.DTO.DepartmentWithEmployeeResponse;
 import be.pxl.departmentservice.domein.Department;
 import be.pxl.departmentservice.domein.dto.DepartmentRequest;
 import be.pxl.departmentservice.domein.dto.DepartmentResponse;
@@ -38,7 +39,12 @@ public class DepartmentController {
     }
 
     @GetMapping("/organisation/{organisationId}")
-    public ResponseEntity<DepartmentResponse> findEmployeeByDepartment (@PathVariable Long organisationId){
+    public ResponseEntity<DepartmentResponse> findDepartmentByOrganizationId (@PathVariable Long organisationId){
         return ResponseEntity.ok().body(departmentService.findDepartmentByOrganisationId(organisationId));
+    }
+
+    @GetMapping("/organisation/{organisationId}/with-employees")
+    public ResponseEntity<DepartmentWithEmployeeResponse> findDepartmentAndEmployeeByOrgId (@PathVariable Long organisationId){
+        return ResponseEntity.ok().body(departmentService.findDepartmentByOrganisationIdWithEmployees(organisationId));
     }
 }
