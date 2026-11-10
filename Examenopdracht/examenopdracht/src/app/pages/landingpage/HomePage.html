@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FreshBox | Jouw maaltijdbox</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'DM Sans', sans-serif;
+      }
+    </style>
+  </head>
+
+  <main class="bg-[#f8faf6] text-gray-800">
+    <!--Navbar-->
+    <nav-bar-component />
+
+    <!-- HERO -->
+    <section class="max-w-7xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-14 items-center">
+      <div>
+        <span
+          class="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-bold mb-6"
+        >
+          🥑 Vers, gezond en gemakkelijk
+        </span>
+
+        <h1 class="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
+          Lekker eten.<br />
+          <span class="text-green-700">Zonder gedoe.</span>
+        </h1>
+
+        <p class="text-gray-500 text-lg mt-6 leading-relaxed max-w-lg">
+          Ontdek heerlijke recepten, stel jouw ideale maaltijdbox samen en laat alles vers bij jou
+          thuis leveren.
+        </p>
+
+        <div class="flex flex-wrap gap-4 mt-9">
+          <a
+            routerLink="createbox"
+            class="bg-green-700 text-white px-8 py-4 rounded-full font-bold hover:bg-green-800 transition shadow-lg"
+          >
+            Stel je box samen →
+          </a>
+
+          <a
+            href="weekmenu.html"
+            class="border border-gray-300 bg-white px-8 py-4 rounded-full font-bold hover:bg-gray-50 transition"
+          >
+            Bekijk weekmenu
+          </a>
+        </div>
+
+        <div class="flex gap-8 mt-12 text-sm">
+          <div>
+            <p class="text-2xl font-extrabold text-green-700">100%</p>
+            <p class="text-gray-500">Verse ingrediënten</p>
+          </div>
+          <div>
+            <p class="text-2xl font-extrabold text-green-700">20+</p>
+            <p class="text-gray-500">Recepten per week</p>
+          </div>
+          <div>
+            <p class="text-2xl font-extrabold text-green-700">Easy</p>
+            <p class="text-gray-500">Thuisbezorgd</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <img
+          src="https://images.unsplash.com/photo-1547592180-85f173990554?w=1000"
+          alt="Verse en gezonde maaltijd"
+          class="rounded-3xl shadow-2xl w-full h-[450px] object-cover"
+        />
+
+        <div class="absolute -bottom-6 -left-5 md:-left-8 bg-white rounded-2xl p-5 shadow-xl">
+          <p class="text-sm text-gray-500">Deze week op het menu</p>
+          <p class="font-bold text-lg">🥗 Verse maaltijden</p>
+          <p class="text-green-700 text-sm font-semibold">Met liefde samengesteld</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="bg-white py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-14">
+          <p class="text-green-700 font-bold uppercase text-sm tracking-widest">Hoe werkt het?</p>
+          <h2 class="text-3xl md:text-4xl font-extrabold mt-3">Alles voor een heerlijke week</h2>
+          <p class="text-gray-500 mt-4">Van recept tot voordeur. Jij kiest, wij regelen de rest.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <a
+            href="weekmenu.html"
+            class="group bg-[#f8faf6] p-7 rounded-2xl hover:shadow-xl transition"
+          >
+            <div class="text-4xl mb-6">🍲</div>
+            <h3 class="text-xl font-bold mb-3 group-hover:text-green-700">Bekijk het weekmenu</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Ontdek de recepten van deze week en kies jouw favoriete gerechten.
+            </p>
+            <p class="text-green-700 font-bold mt-6">Ontdek recepten →</p>
+          </a>
+
+          <a
+            href="bestellen.html"
+            class="group bg-[#f8faf6] p-7 rounded-2xl hover:shadow-xl transition"
+          >
+            <div class="text-4xl mb-6">🛒</div>
+            <h3 class="text-xl font-bold mb-3 group-hover:text-green-700">Stel je box samen</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Selecteer recepten, bepaal het aantal personen en kies je levermoment.
+            </p>
+            <p class="text-green-700 font-bold mt-6">Bestel jouw box →</p>
+          </a>
+
+          <a
+            href="bestellingen.html"
+            class="group bg-[#f8faf6] p-7 rounded-2xl hover:shadow-xl transition"
+          >
+            <div class="text-4xl mb-6">📦</div>
+            <h3 class="text-xl font-bold mb-3 group-hover:text-green-700">Mijn bestellingen</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Volg jouw bestellingen en bekijk wanneer je maaltijdbox geleverd wordt.
+            </p>
+            <p class="text-green-700 font-bold mt-6">Bekijk bestellingen →</p>
+          </a>
+
+          <a
+            href="login.html"
+            class="group bg-[#f8faf6] p-7 rounded-2xl hover:shadow-xl transition"
+          >
+            <div class="text-4xl mb-6">👤</div>
+            <h3 class="text-xl font-bold mb-3 group-hover:text-green-700">Mijn account</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Log in en beheer jouw persoonlijke gegevens en bestellingen.
+            </p>
+            <p class="text-green-700 font-bold mt-6">Inloggen →</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="max-w-7xl mx-auto px-6 py-20">
+      <div class="bg-green-800 rounded-3xl p-10 md:p-16 text-center text-white">
+        <p class="text-green-200 font-bold uppercase tracking-widest text-sm">
+          Klaar om te beginnen?
+        </p>
+
+        <h2 class="text-3xl md:text-4xl font-extrabold mt-4">
+          Jouw volgende maaltijd begint hier.
+        </h2>
+
+        <p class="text-green-100 mt-5 max-w-xl mx-auto">
+          Kies jouw favoriete recepten en geniet deze week van verse maaltijden aan huis.
+        </p>
+
+        <a
+          href="bestellen.html"
+          class="inline-block mt-8 bg-white text-green-800 px-9 py-4 rounded-full font-bold hover:bg-green-50 transition"
+        >
+          Start met bestellen →
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-100 py-8">
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4"
+      >
+        <p class="text-xl font-extrabold text-green-700">
+          fresh<span class="text-gray-800">box.</span>
+        </p>
+
+        <p class="text-sm text-gray-400">© 2026 FreshBox. Alle rechten voorbehouden.</p>
+
+        <a href="login.html" class="text-sm font-semibold hover:text-green-700"> Inloggen </a>
+      </div>
+    </footer>
+  </main>
+</html>
